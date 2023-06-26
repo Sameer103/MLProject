@@ -25,7 +25,7 @@ class ModelTrainer:
     def __init__(self) :
         self.model_trainer_config=ModelTrainConfig()
 
-    def initiate_model_trainer(self, train_array,test_array,preprocessor_path): 
+    def initiate_model_trainer(self, train_array,test_array): 
         try:
             logging.info("Split Training and test input data")
             X_train, y_train, X_train, y_test= (
@@ -85,7 +85,7 @@ class ModelTrainer:
             }
 
 
-            model_report: Dict= evaluate_model(X_train=X_train, y_train=y_train, x_test=X_test, y_test= y_test, models=models)
+            model_report: dict= evaluate_model(X_train=X_train, y_train=y_train, x_test=X_test, y_test= y_test, models=models)
         
         ## To get best model score from dict
             best_model_score = max(sorted(model_report.values()))
